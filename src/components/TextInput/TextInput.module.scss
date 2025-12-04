@@ -1,0 +1,12 @@
+@use '../../styles/settings.scss' as s;
+@use 'sass:color';
+
+.input {
+  min-width: 200px;
+  background: s.$color-light;
+  border: 1px solid color.adjust(s.$color-dark, $lightness: 60%);
+  padding: s.$base-size (s.$base-size * 1.5);
+  margin: 0 0 s.$base-size 0;
+  font-family: s.$font-text;
+  border-radius: s.$radius;
+}

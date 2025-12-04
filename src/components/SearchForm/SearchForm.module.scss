@@ -1,18 +1,9 @@
 @use '../../styles/settings.scss' as s;
+@use 'sass:color';
 
 .searchForm {
   display: flex;
   justify-content: flex-start;
-}
-
-.input {
-  min-width: 200px;
-  background: s.$color-light;
-  border: 1px solid lighten(s.$color-dark, 60%);
-  padding: s.$base-size (s.$base-size * 1.5);
-  margin: 0 0 s.$base-size 0;
-  font-family: s.$font-text;
-  border-radius: s.$radius;
 }
 
 .button {
@@ -30,14 +21,14 @@
   transition: s.$transition;
 
   &:hover {
-    background: darken(s.$color-success, 5%);
+    background: color.adjust(s.$color-success, $lightness: -5%);
   }
 
   &.danger {
     background: s.$color-warning;
 
     &:hover {
-      background: darken(s.$color-warning, 5%);
+      background: color.adjust(s.$color-warning, $lightness: -5%);
     }
   }
 
@@ -45,7 +36,7 @@
     background: transparent;
 
     &:hover {
-      color: darken(s.$color-light, 20%);
+      color: color.adjust(s.$color-light, $lightness: -20%);
     }
   }
 }
