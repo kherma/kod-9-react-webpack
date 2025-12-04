@@ -1,0 +1,24 @@
+@use '../../styles/settings.scss' as s;
+
+.hero {
+  padding: s.$base-size;
+}
+
+.title {
+  padding: (s.$base-size * 3) 0;
+  text-align: center;
+  font-size: (s.$base-size * 3);
+  text-transform: uppercase;
+}
+
+.subtitle {
+  padding: (s.$base-size * 2) 0;
+  text-align: center;
+  font-size: (s.$base-size * 2);
+  font-style: italic;
+  font-weight: normal;
+}
+
+.title + .subtitle {
+  margin-top: (-(s.$base-size) * 3);
+}

@@ -1,0 +1,40 @@
+@use '../../styles/settings.scss' as s;
+
+.header {
+  background-image: url('http://uploads.kodilla.com/bootcamp/fer/11.react/space.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: (s.$base-size * 15);
+  margin: 0 0 (s.$base-size * 3) 0;
+  overflow: hidden;
+  border-radius: s.$radius;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: (s.$base-size * 2.5);
+  text-transform: uppercase;
+  color: s.$color-light;
+
+  span {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+    top: -(s.$base-size);
+  }
+}
+
+.description {
+  margin: 0 0 36px;
+  text-align: center;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
