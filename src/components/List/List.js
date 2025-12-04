@@ -1,4 +1,7 @@
 import styles from './List.module.scss';
+import Column from '../Column/Column';
+import { v4 as uuidv4 } from 'uuid';
+import { data } from '../../utils/utils';
 
 const List = () => {
   return (
@@ -12,15 +15,9 @@ const List = () => {
         Interesting things I want to check out
       </p>
       <section className={styles.columns}>
-        <article>
-          <h2>Books</h2>
-        </article>
-        <article>
-          <h2>Movies</h2>
-        </article>
-        <article>
-          <h2>Games</h2>
-        </article>
+        {data.coluns.titles.map((props) => (
+          <Column {...props} key={uuidv4()} />
+        ))}
       </section>
     </div>
   );
