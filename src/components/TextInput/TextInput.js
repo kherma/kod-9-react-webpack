@@ -1,7 +1,9 @@
 import styles from './TextInput.module.scss';
 
-const TextInput = () => {
-  return <input className={styles.input} type='text' />;
+const TextInput = ({ placeholder }) => {
+  return (
+    <input placeholder={placeholder} className={styles.input} type='text' />
+  );
 };
 
 export default TextInput;
