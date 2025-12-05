@@ -1,19 +1,15 @@
 import { useState } from 'react';
 import styles from './List.module.scss';
 import Column from '../Column/Column';
+import ColumnForm from '../ColumnForm/ColumnForm';
 import { v4 as uuidv4 } from 'uuid';
 import { data } from '../../utils/utils';
 
 const List = () => {
   const [columns, setColumns] = useState(data.coluns);
-  const [value, setValue] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setValue('');
-    setColumns([...columns, { title: value, icon: 'list' }]);
+  const addColumn = (newColumn) => {
+    setColumns([...columns, newColumn]);
   };
-
   return (
     <div>
       <header className={styles.header}>
@@ -29,14 +25,7 @@ const List = () => {
           <Column {...props} key={uuidv4()} />
         ))}
       </section>
-      <form onSubmit={handleSubmit}>
-        <input
-          value={value}
-          type='text'
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <button>Add column</button>
-      </form>
+      <ColumnForm addColumn={addColumn} />
     </div>
   );
 };

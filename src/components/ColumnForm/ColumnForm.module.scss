@@ -1,0 +1,8 @@
+@use '../../styles/settings.scss' as s;
+
+.form {
+  label,
+  input {
+    margin-inline-end: s.$base-size;
+  }
+}

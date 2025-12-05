@@ -1,0 +1,41 @@
+import { useState } from 'react';
+import Button from '../Button/Button.js';
+import TextInput from '../TextInput/TextInput.js';
+import InputLabel from '../InputLabel/InputLabel.js';
+import styles from './ColumnForm.module.scss';
+import { keys } from '../../utils/utils.js';
+
+const ColumnForm = ({ addColumn }) => {
+  const [title, setTitle] = useState('');
+  const [icon, setIcon] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setTitle('');
+    setIcon('');
+    addColumn({ title, icon });
+  };
+
+  return (
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <InputLabel htmlFor={keys.title} text='Title:' />
+      <TextInput
+        name={keys.title}
+        id={keys.title}
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <InputLabel htmlFor={keys.icon} text='Icon:' />
+      <TextInput
+        name={keys.icon}
+        id={keys.icon}
+        value={icon}
+        onChange={(e) => setIcon(e.target.value)}
+      />
+
+      <Button text='Add column' />
+    </form>
+  );
+};
+
+export default ColumnForm;

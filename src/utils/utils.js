@@ -1,3 +1,8 @@
+export const keys = {
+  title: 'title',
+  icon: 'icon',
+};
+
 export const data = {
   button: {
     search: 'Search',
@@ -12,4 +17,3 @@ export const data = {
     search: 'Search...',
   },
 };
-
