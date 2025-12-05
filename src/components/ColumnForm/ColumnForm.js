@@ -13,7 +13,7 @@ const ColumnForm = ({ addColumn }) => {
     e.preventDefault();
     setTitle('');
     setIcon('');
-    addColumn({ title, icon });
+    addColumn({ title, icon, cards: [] });
   };
 
   return (

@@ -2,13 +2,28 @@ import { useState } from 'react';
 import styles from './List.module.scss';
 import Column from '../Column/Column';
 import ColumnForm from '../ColumnForm/ColumnForm';
-import { v4 as uuidv4 } from 'uuid';
 import { data } from '../../utils/utils';
+import uuid4 from 'uuid4';
 
 const List = () => {
-  const [columns, setColumns] = useState(data.coluns);
+  const [columns, setColumns] = useState(data.columns);
   const addColumn = (newColumn) => {
     setColumns([...columns, newColumn]);
+  };
+
+  const addCard = (newCard, columnId) => {
+    console.log(columnId);
+
+    const columnsUpdated = columns.map((column) => {
+      if (column.id === columnId)
+        return {
+          ...column,
+          cards: [...column.cards, { id: uuid4(), title: newCard.title }],
+        };
+      else return column;
+    });
+
+    setColumns(columnsUpdated);
   };
   return (
     <div>
@@ -22,7 +37,7 @@ const List = () => {
       </p>
       <section className={styles.columns}>
         {columns.map((props) => (
-          <Column {...props} key={uuidv4()} />
+          <Column {...props} key={props.id} addCard={addCard} />
         ))}
       </section>
       <ColumnForm addColumn={addColumn} />
