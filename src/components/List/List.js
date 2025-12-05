@@ -1,9 +1,19 @@
+import { useState } from 'react';
 import styles from './List.module.scss';
 import Column from '../Column/Column';
 import { v4 as uuidv4 } from 'uuid';
 import { data } from '../../utils/utils';
 
 const List = () => {
+  const [columns, setColumns] = useState(data.coluns);
+  const [value, setValue] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setValue('');
+    setColumns([...columns, { title: value, icon: 'list' }]);
+  };
+
   return (
     <div>
       <header className={styles.header}>
@@ -15,10 +25,18 @@ const List = () => {
         Interesting things I want to check out
       </p>
       <section className={styles.columns}>
-        {data.coluns.titles.map((props) => (
+        {columns.map((props) => (
           <Column {...props} key={uuidv4()} />
         ))}
       </section>
+      <form onSubmit={handleSubmit}>
+        <input
+          value={value}
+          type='text'
+          onChange={(e) => setValue(e.target.value)}
+        />
+        <button>Add column</button>
+      </form>
     </div>
   );
 };
