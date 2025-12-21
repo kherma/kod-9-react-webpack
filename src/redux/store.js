@@ -1,8 +1,17 @@
 import { createStore } from 'redux';
 import initialState from './initialState';
+import { v4 as uuidv4 } from 'uuid';
 
 const reducer = (state, action) => {
-  return state;
+  switch (action.type) {
+    case 'ADD_COLUMN':
+      return {
+        ...state,
+        columns: [...state.columns, { ...action.payload, id: uuidv4() }],
+      };
+    default:
+      return state;
+  }
 };
 
 const store = createStore(

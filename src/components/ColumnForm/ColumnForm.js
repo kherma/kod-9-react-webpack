@@ -4,16 +4,18 @@ import TextInput from '../TextInput/TextInput.js';
 import InputLabel from '../InputLabel/InputLabel.js';
 import styles from './ColumnForm.module.scss';
 import { keys } from '../../utils/utils.js';
+import { useDispatch } from 'react-redux';
 
-const ColumnForm = ({ addColumn }) => {
+const ColumnForm = () => {
   const [title, setTitle] = useState('');
   const [icon, setIcon] = useState('');
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch({ type: 'ADD_COLUMN', payload: { title, icon } });
     setTitle('');
     setIcon('');
-    addColumn({ title, icon, cards: [] });
   };
 
   return (
