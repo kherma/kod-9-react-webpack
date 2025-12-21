@@ -1,5 +1,5 @@
 import Card from '../Card/Card';
-// import CardForm from '../CardForm/CardForm';
+import CardForm from '../CardForm/CardForm';
 import styles from './Column.module.scss';
 import { useSelector, shallowEqual } from 'react-redux';
 
@@ -19,7 +19,7 @@ const Column = ({ id, title, icon }) => {
           <Card key={id} title={title} />
         ))}
       </ul>
-      {/* <CardForm columnId={id} addCard={} /> */}
+      <CardForm columnId={id} />
     </article>
   );
 };
