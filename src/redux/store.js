@@ -14,6 +14,11 @@ const reducer = (state, action) => {
         ...state,
         cards: [...state.cards, { ...action.payload, id: uuidv4() }],
       };
+    case 'SEARCH_TEXT':
+      return {
+        ...state,
+        searchText: action.payload,
+      };
     default:
       return state;
   }

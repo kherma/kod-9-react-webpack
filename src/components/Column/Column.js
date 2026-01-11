@@ -4,8 +4,14 @@ import styles from './Column.module.scss';
 import { useSelector, shallowEqual } from 'react-redux';
 
 const Column = ({ id, title, icon }) => {
+  const searchText = useSelector((state) => state.searchText);
   const cards = useSelector(
-    (state) => state.cards.filter((card) => card.columnId === id),
+    (state) =>
+      state.cards.filter(
+        (card) =>
+          card.columnId === id &&
+          card.title.toLowerCase().includes(searchText.toLowerCase())
+      ),
     shallowEqual
   );
 
