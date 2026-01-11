@@ -2,16 +2,11 @@ import Card from '../Card/Card';
 import CardForm from '../CardForm/CardForm';
 import styles from './Column.module.scss';
 import { useSelector, shallowEqual } from 'react-redux';
+import { getFilteredCards } from '../../redux/store';
 
 const Column = ({ id, title, icon }) => {
-  const searchText = useSelector((state) => state.searchText);
   const cards = useSelector(
-    (state) =>
-      state.cards.filter(
-        (card) =>
-          card.columnId === id &&
-          card.title.toLowerCase().includes(searchText.toLowerCase())
-      ),
+    (state) => getFilteredCards(state, id),
     shallowEqual
   );
 
