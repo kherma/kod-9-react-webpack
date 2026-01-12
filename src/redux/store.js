@@ -16,6 +16,8 @@ export const getAllColumns = (state) => state.columns;
 
 export const addColumn = (payload) => ({ type: 'ADD_COLUMN', payload });
 
+export const addCard = (payload) => ({ type: 'ADD_CARD', payload });
+
 // Reducer
 
 const reducer = (state, action) => {
