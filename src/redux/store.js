@@ -3,12 +3,20 @@ import initialState from './initialState';
 import { v4 as uuidv4 } from 'uuid';
 import { strContains } from '../utils/strContains';
 
+// Selectors
+
 export const getFilteredCards = ({ cards, searchText }, columnId) =>
   cards.filter(
     (card) => card.columnId === columnId && strContains(card.title, searchText)
   );
 
 export const getAllColumns = (state) => state.columns;
+
+// Actions creators
+
+export const addColumn = (payload) => ({ type: 'ADD_COLUMN', payload });
+
+// Reducer
 
 const reducer = (state, action) => {
   switch (action.type) {
