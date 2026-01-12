@@ -18,6 +18,11 @@ export const addColumn = (payload) => ({ type: 'ADD_COLUMN', payload });
 
 export const addCard = (payload) => ({ type: 'ADD_CARD', payload });
 
+export const updateSearchstring = (payload) => ({
+  type: 'UPDATE_SEARCHSTRING',
+  payload,
+});
+
 // Reducer
 
 const reducer = (state, action) => {
@@ -32,7 +37,7 @@ const reducer = (state, action) => {
         ...state,
         cards: [...state.cards, { ...action.payload, id: uuidv4() }],
       };
-    case 'SEARCH_TEXT':
+    case 'UPDATE_SEARCHSTRING':
       return {
         ...state,
         searchText: action.payload,
