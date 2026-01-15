@@ -1,7 +1,12 @@
 import styles from './Container.module.scss';
+import { clsx } from 'clsx';
 
-const Container = ({ children }) => {
-  return <div className={styles.container}>{children}</div>;
+const Container = ({ children, margin = true }) => {
+  return (
+    <div className={clsx(styles.container, !margin && styles.noBlockMargin)}>
+      {children}
+    </div>
+  );
 };
 
 export default Container;

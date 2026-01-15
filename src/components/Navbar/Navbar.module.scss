@@ -4,11 +4,7 @@
 
 .navbar {
   background-color: color.adjust(s.$color-dark, $lightness: -3%);
-  padding: 6px 0;
-}
-
-.navbar > * {
-  margin: 0 auto;
+  padding: (s.$base-size / 2);
 }
 
 .innerNavbar {

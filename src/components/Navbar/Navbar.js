@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 const Navbar = () => {
   return (
     <nav className={styles.navbar} aria-label='main navigation'>
-      <Container>
+      <Container margin={false}>
         <div className={styles.innerNavbar}>
           <NavLogo />
           <ul className={styles.navlinks}>
