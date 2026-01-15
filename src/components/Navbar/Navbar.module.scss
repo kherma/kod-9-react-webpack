@@ -1,0 +1,30 @@
+@use '../../styles/settings.scss' as s;
+@use 'sass:color';
+@use 'sass:math';
+
+.navbar {
+  background-color: color.adjust(s.$color-dark, $lightness: -3%);
+  padding: 6px 0;
+}
+
+.navbar > * {
+  margin: 0 auto;
+}
+
+.innerNavbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: s.$color-light;
+  text-decoration: none;
+}
+
+.navlinks {
+  list-style-type: none;
+  display: flex;
+  gap: (s.$base-size * 2);
+  font-weight: 900;
+}

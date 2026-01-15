@@ -1,0 +1,6 @@
+@use '../../../styles/settings.scss' as s;
+@use 'sass:math';
+
+.icon::before {
+  font-size: (s.$base-size * 2);
+}
