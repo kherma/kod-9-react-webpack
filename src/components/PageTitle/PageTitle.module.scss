@@ -1,0 +1,8 @@
+@use '../../styles/settings.scss' as s;
+
+.pageTitle {
+  padding: (s.$base-size * 3) 0;
+  text-align: center;
+  font-size: (s.$base-size * 3);
+  text-transform: uppercase;
+}
