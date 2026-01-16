@@ -4,7 +4,7 @@ import ColumnForm from '../ColumnForm/ColumnForm';
 import SearchForm from '../SearchForm/SearchForm';
 import { useSelector, shallowEqual } from 'react-redux';
 import { getListById, getColumnsByList } from '../../redux/store';
-import { useParams } from 'react-router';
+import { useParams, Navigate } from 'react-router';
 
 const List = () => {
   const { listId } = useParams();
@@ -16,6 +16,8 @@ const List = () => {
     (state) => getColumnsByList(state, id),
     shallowEqual
   );
+
+  if (!id) return <Navigate to='/' />;
 
   return (
     <div>
