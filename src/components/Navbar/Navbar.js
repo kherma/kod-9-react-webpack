@@ -1,7 +1,7 @@
 import styles from './Navbar.module.scss';
 import Container from '../Container/Container';
 import NavLogo from './NavLogo/NavLogo';
-import NavLink from './NavLink/NavLink';
+import NavigationLink from './NavigationLink/NavigationLink';
 import { navLinks } from '../../utils/navLinks';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -13,7 +13,7 @@ const Navbar = () => {
           <NavLogo />
           <ul className={styles.navlinks}>
             {navLinks.map(({ link, text }) => (
-              <NavLink key={uuidv4()} link={link} text={text} />
+              <NavigationLink key={uuidv4()} link={link} text={text} />
             ))}
           </ul>
         </div>

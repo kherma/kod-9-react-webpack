@@ -1,0 +1,6 @@
+@use '../../../styles/settings.scss' as s;
+
+a.linkActive {
+  color: s.$color-warning;
+  transition: color ease-in-out 0.15s;
+}
