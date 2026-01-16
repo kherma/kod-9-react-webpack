@@ -1,15 +1,20 @@
 import styles from './List.module.scss';
 import Column from '../Column/Column';
 import ColumnForm from '../ColumnForm/ColumnForm';
-import { useSelector } from 'react-redux';
+import { useSelector, shallowEqual } from 'react-redux';
 import { getListById, getColumnsByList } from '../../redux/store';
+import { useParams } from 'react-router';
 
 const List = () => {
-  const LIST_ID = 1;
+  const { listId } = useParams();
+
   const { title, description, id } = useSelector(
-    (state) => getListById(state, LIST_ID) ?? {}
+    (state) => getListById(state, listId) ?? {}
   );
-  const columns = useSelector((state) => getColumnsByList(state, id));
+  const columns = useSelector(
+    (state) => getColumnsByList(state, id),
+    shallowEqual
+  );
 
   return (
     <div>

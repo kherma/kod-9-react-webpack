@@ -1,0 +1,23 @@
+@use 'sass:math';
+@use '../../styles/settings.scss' as s;
+
+.lists {
+  margin-top: s.$base-size * 2;
+}
+
+.heading {
+  text-align: center;
+}
+
+.listLink {
+  display: block;
+  max-width: s.$base-size * 35;
+  margin: (s.$base-size * 2) auto (s.$base-size * 2) auto;
+  text-decoration: none;
+  color: s.$color-dark;
+  background: s.$color-light;
+  margin-bottom: s.$base-size;
+  border-radius: s.$radius;
+  box-shadow: 0 math.div(s.$base-size, 4) 0 rgba(0, 0, 0, 0.3);
+  padding: s.$base-size;
+}

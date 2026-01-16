@@ -5,6 +5,7 @@ import Home from './Pages/Home/Home';
 import Favorite from './Pages/Favorite/Favorite';
 import About from './Pages/About/About';
 import NoMatch from './Pages/NoMatch/NoMatch';
+import List from './components/List/List';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/favorite' element={<Favorite />} />
           <Route path='/about' element={<About />} />
+          <Route path='/list/:listId' element={<List />} />
           <Route path='*' element={<NoMatch />} />
         </Routes>
       </Container>
