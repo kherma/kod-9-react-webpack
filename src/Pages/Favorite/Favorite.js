@@ -1,9 +1,10 @@
 import PageTitle from '../../components/PageTitle/PageTitle';
+import Column from '../../components/Column/Column';
 
 const Favorite = () => (
   <div>
     <PageTitle>Favorite</PageTitle>
-    <p>Lorem ipsum.</p>
+    <Column favorite={true} />
   </div>
 );
 

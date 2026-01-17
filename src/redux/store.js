@@ -5,9 +5,11 @@ import { strContains } from '../utils/strContains';
 
 // Selectors
 
-export const getFilteredCards = ({ cards, searchText }, columnId) =>
-  cards.filter(
-    (card) => card.columnId === columnId && strContains(card.title, searchText)
+export const getFilteredCards = ({ cards, searchText }, columnId, favorite) =>
+  cards.filter((card) =>
+    favorite
+      ? card.isFavorite
+      : card.columnId === columnId && strContains(card.title, searchText)
   );
 
 export const getAllColumns = (state) => state.columns;
@@ -28,6 +30,11 @@ export const addCard = (payload) => ({ type: 'ADD_CARD', payload });
 
 export const addList = (payload) => ({ type: 'ADD_LIST', payload });
 
+export const toggleCardFavorite = (payload) => ({
+  type: 'TOGGLE_CARD_FAVORITE',
+  payload,
+});
+
 export const updateSearchstring = (payload) => ({
   type: 'UPDATE_SEARCHSTRING',
   payload,
@@ -46,6 +53,15 @@ const reducer = (state, action) => {
       return {
         ...state,
         cards: [...state.cards, { ...action.payload, id: uuidv4() }],
+      };
+    case 'TOGGLE_CARD_FAVORITE':
+      return {
+        ...state,
+        cards: state.cards.map((card) =>
+          card.id === action.payload
+            ? { ...card, isFavorite: !card.isFavorite }
+            : card
+        ),
       };
     case 'ADD_LIST':
       return {

@@ -16,6 +16,10 @@
   }
 }
 
+.columnCenter:last-child {
+  margin: 0 auto;
+}
+
 .title {
   text-align: center;
   font-size: (s.$base-size * 1.5);
