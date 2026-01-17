@@ -1,0 +1,11 @@
+@use '../../styles/settings.scss' as s;
+
+.form {
+  text-align: center;
+  margin-top: (2 * s.$base-size);
+
+  label,
+  input {
+    margin-inline-end: s.$base-size;
+  }
+}
