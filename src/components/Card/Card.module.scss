@@ -14,15 +14,27 @@
   align-items: center;
 }
 
+.buttons {
+  display: flex;
+  gap: 12px;
+}
+
 .button {
   margin: 0;
   padding: 0;
   background-color: transparent;
   border: none;
+  cursor: pointer;
+  color: color.adjust(s.$color-dark, $lightness: 60%);
+  transition: color ease-in-out 0.15s;
+}
+
+.button:hover {
+  color: s.$color-dark;
 }
 
 .button:focus-visible {
-  outline: 2px solid #000;
+  outline: 2px solid s.$color-dark;
   outline-offset: 2px;
 }
 
