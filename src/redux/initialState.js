@@ -1,5 +1,5 @@
 const initialState = {
-  searchText: '',
+  searchString: '',
   lists: [
     {
       id: '1',

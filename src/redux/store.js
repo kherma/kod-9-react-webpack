@@ -1,15 +1,18 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import initialState from './initialState';
-import { v4 as uuidv4 } from 'uuid';
 import { strContains } from '../utils/strContains';
+import listsReducer from './listsRedux';
+import columnsReducer from './columnsReducer';
+import cardsReducer from './cardsReducer';
+import searchStringReducer from './searchStringReducer';
 
 // Selectors
 
-export const getFilteredCards = ({ cards, searchText }, columnId, favorite) =>
+export const getFilteredCards = ({ cards, searchString }, columnId, favorite) =>
   cards.filter((card) =>
     favorite
       ? card.isFavorite
-      : card.columnId === columnId && strContains(card.title, searchText)
+      : card.columnId === columnId && strContains(card.title, searchString)
   );
 
 export const getAllColumns = (state) => state.columns;
@@ -42,41 +45,14 @@ export const updateSearchstring = (payload) => ({
 
 // Reducer
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'ADD_COLUMN':
-      return {
-        ...state,
-        columns: [...state.columns, { ...action.payload, id: uuidv4() }],
-      };
-    case 'ADD_CARD':
-      return {
-        ...state,
-        cards: [...state.cards, { ...action.payload, id: uuidv4() }],
-      };
-    case 'TOGGLE_CARD_FAVORITE':
-      return {
-        ...state,
-        cards: state.cards.map((card) =>
-          card.id === action.payload
-            ? { ...card, isFavorite: !card.isFavorite }
-            : card
-        ),
-      };
-    case 'ADD_LIST':
-      return {
-        ...state,
-        lists: [...state.lists, { ...action.payload, id: uuidv4() }],
-      };
-    case 'UPDATE_SEARCHSTRING':
-      return {
-        ...state,
-        searchText: action.payload,
-      };
-    default:
-      return state;
-  }
+const subreducers = {
+  lists: listsReducer,
+  columns: columnsReducer,
+  cards: cardsReducer,
+  searchString: searchStringReducer,
 };
+
+const reducer = combineReducers(subreducers);
 
 const store = createStore(
   reducer,
