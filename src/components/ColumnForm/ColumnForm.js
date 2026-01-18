@@ -5,7 +5,7 @@ import InputLabel from '../InputLabel/InputLabel.js';
 import styles from './ColumnForm.module.scss';
 import { keys } from '../../utils/keys.js';
 import { useDispatch } from 'react-redux';
-import { addColumn } from '../../redux/store.js';
+import { addColumn } from '../../redux/columnsRedux.js';
 
 const ColumnForm = ({ listId }) => {
   const [title, setTitle] = useState('');

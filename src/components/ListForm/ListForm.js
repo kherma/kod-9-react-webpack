@@ -5,7 +5,7 @@ import InputLabel from '../InputLabel/InputLabel.js';
 import styles from './ListForm.module.scss';
 import { keys } from '../../utils/keys.js';
 import { useDispatch } from 'react-redux';
-import { addList } from '../../redux/store.js';
+import { addList } from '../../redux/listsRedux.js';
 
 const ListForm = () => {
   const [title, setTitle] = useState('');

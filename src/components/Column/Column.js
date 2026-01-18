@@ -2,7 +2,7 @@ import Card from '../Card/Card';
 import CardForm from '../CardForm/CardForm';
 import styles from './Column.module.scss';
 import { useSelector, shallowEqual } from 'react-redux';
-import { getFilteredCards } from '../../redux/store';
+import { getFilteredCards } from '../../redux/cardsRedux';
 import clsx from 'clsx';
 
 const Column = ({ id, title, icon, favorite = false }) => {

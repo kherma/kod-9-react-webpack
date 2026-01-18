@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { getAllLists } from '../../redux/store';
+import { getAllLists } from '../../redux/listsRedux';
 import styles from './Lists.module.scss';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
